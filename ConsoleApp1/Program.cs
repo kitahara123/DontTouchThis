@@ -20,7 +20,7 @@ namespace ConsoleApp1
 				Console.Write(i + " ");
 
 			Console.WriteLine();
-			//Console.WriteLine(BinarySearch(12, arr));
+			Console.WriteLine(BinarySearch(23, arr));
 
 			Console.ReadKey();
 		}
@@ -28,17 +28,17 @@ namespace ConsoleApp1
 		static int BinarySearch(int num, int[] arr)
 		{
 			int L = 0, R = arr.Length -1;
-			int m = L + (R - L) / 2;
-			while(L <= R && arr[m] != num)
+			while (L <= R)
 			{
+				int m = (L + R) / 2;
+
 				if (arr[m] < num)
 					L = m + 1;
 				else
 					R = m - 1;
-				m = L + (R - L) / 2;
+				if (arr[m] == num) return m;
 			}
-			if (arr[m] == num) return m;
-			else return -1;
+			return -1;
 
 		}
 		static void InsertSort(int[] a)
